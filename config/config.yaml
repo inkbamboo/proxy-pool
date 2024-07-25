@@ -1,0 +1,70 @@
+#使用代理去获取代理IP
+proxy:
+  host: 127.0.0.1
+  port: 10809
+
+#配置信息
+config:
+  #监听IP
+  ip: 0.0.0.0
+  #webApi监听端口
+  port: 8080
+  #http隧道代理端口
+  httpTunnelPort: 8111
+  #socket隧道代理端口
+  socketTunnelPort: 8112
+  #隧道代理更换时间秒
+  tunnelTime: 60
+  #可用IP数量小于‘proxyNum’时就去抓取
+  proxyNum: 30
+  #代理IP验证间隔秒
+  verifyTime: 1800
+  #抓取/检测状态线程数
+  threadNum: 200
+
+#ip源
+spider:
+  - name: '齐云代理'
+    urls: 
+      - 'https://proxy.ip3366.net/free/?action=china&page=1'
+      - 'https://proxy.ip3366.net/free/?action=china&page=2'
+      - 'https://proxy.ip3366.net/free/?action=china&page=3'
+    xpath: '//section/section/div[2]/table/tbody/tr'
+    proxy: false
+
+  - name: "89代理"
+    urls:
+      - "https://www.89ip.cn/index_1.html'
+      - 'https://www.89ip.cn/index_2.html'
+      - 'https://www.89ip.cn/index_3.html"
+    xpath: '//div/div/div/div/table/tbody/tr'
+    proxy: false
+
+  - name: "开心代理"
+    urls: "http://www.kxdaili.com/daili/ip/7713.html"
+    xpath: '//div[2]/div[2]'
+    proxy: false
+
+  - name: "快代理"
+    urls:
+      - 'http://www.ip3366.net/?stype=1&page=1'
+      - 'http://www.ip3366.net/?stype=3&page=1'
+      - 'http://www.ip3366.net/?stype=3&page=2'
+    xpath: '//div[3]/div[4]/table/tbody/tr'
+    proxy: false
+
+  - name: "my代理"
+    urls:
+      - "https://www.my-proxy.com/free-socks-5-proxy.html'
+      - 'https://www.my-proxy.com/free-elite-proxy.html'
+      - 'https://www.my-proxy.com/free-anonymous-proxy.html"
+    xpath: '//section[1]/div/div[2]/div[1]/div[1]'
+    proxy: false
+
+  - name: "proxy代理"
+    urls:
+    - "https://free-proxy-list.net/'
+    - 'https://www.us-proxy.org/'
+    - 'https://www.socks-proxy.net/"
+    xpath: '//section[1]/div/div[2]/div/table/tbody/tr'
+    proxy: false
